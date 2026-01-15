@@ -1,0 +1,50 @@
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: directus-postgres
+    environment:
+      POSTGRES_DB: directus
+      POSTGRES_USER: directus
+      POSTGRES_PASSWORD: directus
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  adminer:
+    image: adminer
+    container_name: directus_adminer
+    ports:
+      - "8071:8080"
+    depends_on:
+      - postgres
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+
+
+
+  directus:
+    image: directus/directus:11.5.1
+    container_name: directus
+    depends_on:
+      - postgres
+    ports:
+      - "8055:8055"
+    volumes:
+      - ./uploads:/directus/uploads
+      - ./extensions:/directus/extensions
+    environment:
+      SECRET: "kG9!2x#QvP7mD@A8W"
+      DB_CLIENT: "pg"
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_DATABASE: directus
+      DB_USER: directus
+      DB_PASSWORD: directus
+      ADMIN_EMAIL: admin@admin.com
+      ADMIN_PASSWORD: admin123
+      WEBSOCKETS_ENABLED: "true"
+
+volumes:
+  postgres_data:
