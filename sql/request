@@ -1,0 +1,3 @@
+http://localhost:8055/items/specialite?fields=libelle&filter={"id":{_eq%:2}}
+http://localhost:8055/items/specialite?filter={"id":{_eq%:2}}
+http://localhost:8055/items/praticien
