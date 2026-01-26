@@ -1,0 +1,40 @@
+Requêtes Query
+1. liste des praticiens en précisant : id, nom, prénom, téléphone, ville
+query{
+    praticien{
+        id,
+        nom,
+        prenom,
+        ville
+    }
+}
+
+2. Idem, en ajoutant le libellé de la spécialité du praticien
+query{
+    praticien{
+        id,
+        nom,
+        prenom,
+        ville,
+        specialite_id{
+            libelle
+        }
+    }
+}
+
+3. Idem, en ajoutant un filtre pour sélectionner les praticiens dont la ville est égale à «Paris»
+(ou une valeur de votre jeu de données)
+
+query{
+    praticien(filter:{ville:{_eq:"Paris"}}){
+        id,
+        nom,
+        prenom,
+        ville,
+        specialite_id{
+            libelle
+        }
+    }
+}
+
+4. Idem, en ajoutant le nom et la ville de la structure d’appartenance du praticien,
