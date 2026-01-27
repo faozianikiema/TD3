@@ -1,0 +1,120 @@
+meta {
+  name: update
+  type: graphql
+  seq: 2
+}
+
+post {
+  url: http://localhost:8055/graphql
+  body: graphql
+  auth: inherit
+}
+
+body:graphql {
+  mutation update {
+    update_praticien_item(
+      id: 4
+      data: {
+        nom: "NIKIEMA"
+        prenom: "Faozia"
+        ville: "Nancy"
+        specialite_id: { id: 6 }
+      }
+    ) {
+      nom
+      prenom
+      ville
+      specialite_id {
+        id
+        libelle
+        description
+      }
+    }
+    create_praticien_item(
+      data: {
+        nom: "BOLI"
+        prenom: "Yann"
+        ville: "Nantes"
+        specialite_id: { id: 6 }
+      }
+    ) {
+      nom
+      prenom
+      ville
+      specialite_id {
+        id
+        libelle
+        description
+      }
+    }
+    create_praticien_item(
+      data: {
+        nom: "PratiNom"
+        prenom: "pratiPre"
+        ville: "Paris"
+        specialite_id: {
+          libelle: "chirurgie"
+          description: "la chirurgie au ventre"
+        }
+      }
+    ) {
+      nom
+      prenom
+      ville
+      specialite_id {
+        id
+        libelle
+        description
+      }
+    }
+    create_praticien_item(
+      data: {
+        nom: "DUC"
+        prenom: "Lucien"
+        ville: "Laxou"
+        specialite_id: { id: 23 }
+      }
+    ) {
+      nom
+      prenom
+      ville
+      specialite_id {
+        id
+        libelle
+        description
+      }
+    }
+    update_praticien_item(
+      data: {
+        nom: "May"
+        prenom: "Caille"
+        ville: "Caien"
+        structure_id: { id: "255ecef6-14b9-3b5c-a40e-901665f4ed28" }
+      }
+    ) {
+      nom
+      prenom
+      ville
+      structure_id {
+        id
+        nom
+        ville
+        code_postal
+      }
+    }
+    delete_praticien_items(
+      ids: [
+        "fe31d6a5-7423-4880-b2b6-88c2fff2f516"
+        "fd23b913-b526-3b02-bf44-0dd2b25796bb"
+      ]
+    ) {
+      ids
+    }
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

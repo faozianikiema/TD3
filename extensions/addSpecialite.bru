@@ -1,0 +1,47 @@
+meta {
+  name: addSpecialite
+  type: graphql
+  seq: 1
+}
+
+post {
+  url: http://localhost:8055/graphql
+  body: graphql
+  auth: inherit
+}
+
+body:graphql {
+  mutation creer {
+    create_specialite_item(data:
+    {
+      libelle:"cadiologie",
+      description:"hypertension"
+    }){
+      id
+      libelle
+      description
+      
+    }
+    
+    create_praticien_item(data:
+      {
+        nom:"dupont",
+        prenom:"eve",
+        ville:"Nancy"
+        
+      }
+    ){
+      nom
+      prenom
+      ville
+    }
+   
+    }
+    
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
