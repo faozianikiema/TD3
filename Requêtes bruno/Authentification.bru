@@ -1,0 +1,23 @@
+meta {
+  name: Authentification
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8055/auth/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "admin@admin.com",
+    "password": "admin123"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

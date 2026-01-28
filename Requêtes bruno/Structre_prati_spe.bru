@@ -1,0 +1,37 @@
+meta {
+  name: Structre_prati_spe
+  type: graphql
+  seq: 11
+}
+
+post {
+  url: http://localhost:8055/graphql
+  body: graphql
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEzOTk5ZWY0LWQwNDEtNDUwNC1hYWY4LWY0M2ZiYTE5ODVhMSIsInJvbGUiOiI0NjhiNWI1My1lNmM4LTQzNmMtOTI2NS1lMmY2ZTQ5ZTc1NDEiLCJhcHBfYWNjZXNzIjp0cnVlLCJhZG1pbl9hY2Nlc3MiOnRydWUsImlhdCI6MTc2OTYxMDQ5NSwiZXhwIjoxNzY5NjExMzk1LCJpc3MiOiJkaXJlY3R1cyJ9.kwAeN58wojyNhKijzJr5FEteHqEzPgxMv2oQPdz3XYE
+}
+
+body:graphql {
+  query {
+    structure {
+      nom
+      ville
+      praticiens {
+        nom
+        prenom
+        email
+        specialite_id {
+          libelle
+        }
+      }
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

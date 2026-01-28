@@ -1,0 +1,29 @@
+meta {
+  name: moyens_de_paiement
+  type: graphql
+  seq: 12
+}
+
+post {
+  url: http://localhost:8055/graphql
+  body: graphql
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkxYjRkN2U0LWQxYjEtNDVlNi05MGYwLTE3N2E5NzRlMWNjNyIsInJvbGUiOiIzNjRiM2MzYS04OWFlLTQzZDUtODg4Zi1jOTZmMWJjN2NhY2UiLCJhcHBfYWNjZXNzIjp0cnVlLCJhZG1pbl9hY2Nlc3MiOnRydWUsImlhdCI6MTc2OTYxMjMwOSwiZXhwIjoxNzY5NjEzMjA5LCJpc3MiOiJkaXJlY3R1cyJ9.4eXkJ9AibZw4qs4VJtQbQ4qjPqyJKp5nK1ffkXCoPJE
+}
+
+body:graphql {
+  query {
+    moyen_paiement {
+      id
+      libelle
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

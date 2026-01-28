@@ -1,0 +1,44 @@
+meta {
+  name: Prati_Bourdon-les-Bains
+  type: graphql
+  seq: 9
+}
+
+post {
+  url: http://localhost:8055/graphql
+  body: graphql
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEzOTk5ZWY0LWQwNDEtNDUwNC1hYWY4LWY0M2ZiYTE5ODVhMSIsInJvbGUiOiI0NjhiNWI1My1lNmM4LTQzNmMtOTI2NS1lMmY2ZTQ5ZTc1NDEiLCJhcHBfYWNjZXNzIjp0cnVlLCJhZG1pbl9hY2Nlc3MiOnRydWUsImlhdCI6MTc2OTYwOTM4MCwiZXhwIjoxNzY5NjEwMjgwLCJpc3MiOiJkaXJlY3R1cyJ9.g3PmX5Eb6pTZwg1iQ8rqxEjKdWdc0n4-Ak-Eag3cvkY
+}
+
+body:graphql {
+  query {
+    praticiensParis: praticien(filter: { ville: { _eq: "Paris" } }) {
+      id
+      nom
+      prenom
+      telephone
+      ville
+      email
+    }
+  
+    praticiensBourdon: praticien(
+      filter: { ville: { _eq: "Bourdon-les-Bains" } }
+    ) {
+      id
+      nom
+      prenom
+      telephone
+      ville
+      email
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
